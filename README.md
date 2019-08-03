@@ -1,3 +1,8 @@
+Forked from sualfred with these changes:
+- pausing player does not show OSD 
+- reduced time OSD is shown after seeking frmo 2s to 0.5s
+Both changes are for improved visibility of subtitles, particularly when in a foreign language that takes longer to read.
+
 # skin.embuary
 Embuary is based on the web UI of Emby and has been developed for Emby-For-kodi users, but it doesn't require Emby at all and will also work with a regular Kodi setup.
 

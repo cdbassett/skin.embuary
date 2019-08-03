@@ -20,7 +20,7 @@
 		<platform>all</platform>
 		<license>CC by-nc-nd 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
 		<forum>https://emby.media/community/index.php?/topic/49724-beta-embuary-the-emby-kodi-skin/</forum>
-		<source>https://github.com/sualfred/skin.embuary</source>
+		<source>https://github.com/cdbassett/skin.embuary</source>
 		<assets>
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.jpg</fanart>

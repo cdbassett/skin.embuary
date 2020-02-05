@@ -109,7 +109,6 @@
 		<param name="width">100%</param>
 		<param name="textoffsetx">50</param>
 		<definition>
-			<include>radio$PARAM[textoffsetx]_style</include>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>
@@ -117,7 +116,7 @@
 			<align>left</align>
 			<font>Reg22</font>
 			<invalidcolor>invalid</invalidcolor>
-			<selectedcolor>selected</selectedcolor>
+			<selectedcolor>$VAR[AccentColor]</selectedcolor>
 			<textcolor>text_white</textcolor>
 			<focusedcolor>text_white</focusedcolor>
 			<disabledcolor>disabled</disabledcolor>
@@ -138,7 +137,7 @@
 			<align>left</align>
 			<font>Reg22</font>
 			<invalidcolor>invalid</invalidcolor>
-			<selectedcolor>selected</selectedcolor>
+			<selectedcolor>$VAR[AccentColor]</selectedcolor>
 			<textcolor>text_white</textcolor>
 			<focusedcolor>text_white</focusedcolor>
 			<disabledcolor>disabled</disabledcolor>
@@ -159,7 +158,7 @@
 			<align>left</align>
 			<font>Reg22</font>
 			<invalidcolor>invalid</invalidcolor>
-			<selectedcolor>selected</selectedcolor>
+			<selectedcolor>$VAR[AccentColor]</selectedcolor>
 			<textcolor>text_white</textcolor>
 			<focusedcolor>text_white</focusedcolor>
 			<disabledcolor>disabled</disabledcolor>
@@ -321,9 +320,9 @@
 		<param name="alt">$PARAM[type]</param>
 		<definition>
 			<include>Animation_FocusBounceButton</include>
-			<texturenofocus>icons/player/$PARAM[type]_nf.png</texturenofocus>
+			<texturenofocus colordiffuse="$PARAM[colordiffuse]">icons/player/$PARAM[type]_nf.png</texturenofocus>
 			<texturefocus colordiffuse="$VAR[PlayerAccentColor]">icons/player/$PARAM[type]_fo.png</texturefocus>
-			<alttexturenofocus>icons/player/$PARAM[alt]_nf.png</alttexturenofocus>
+			<alttexturenofocus colordiffuse="$PARAM[colordiffuse]">icons/player/$PARAM[alt]_nf.png</alttexturenofocus>
 			<alttexturefocus colordiffuse="$VAR[PlayerAccentColor]">icons/player/$PARAM[alt]_fo.png</alttexturefocus>
 			<width>50</width>
 			<height>50</height>

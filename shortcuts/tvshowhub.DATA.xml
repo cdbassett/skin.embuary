@@ -6,7 +6,7 @@
 		<label2/>
 		<icon/>
 		<thumb/>
-		<action>ActivateWindow(videos,library://video/tvshows/titles.xml/,return)</action>
+		<action>ActivateWindow(videos,videodb://tvshows/titles/?force_root=$INFO[System.Time(mm)]$INFO[System.Time(ss)],return)</action>
 		<visible>Library.HasContent(tvshows)</visible>
 	</shortcut>
 	<shortcut>
@@ -15,7 +15,7 @@
 		<label2/>
 		<icon/>
 		<thumb/>
-		<action>ActivateWindow(videos,special://skin/playlists/video/UnwatchedTVShows.xsp,return)</action>
+		<action>ActivateWindow(videos,videodb://tvshows/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22numepisodes%22%2c%22operator%22%3a%22greaterthan%22%2c%22value%22%3a%5b%220%22%5d%7d%2c%7b%22field%22%3a%22numwatched%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%220%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d&amp;force_root=$INFO[System.Time(mm)]$INFO[System.Time(ss)],return)</action>
 		<visible>Library.HasContent(tvshows)</visible>
 	</shortcut>
 	<shortcut>
@@ -51,7 +51,7 @@
 		<label2/>
 		<icon/>
 		<thumb/>
-		<action>ActivateWindow(10025,&quot;plugin://plugin.video.embycon/?media_type=tvshows&amp;mode=GET_CONTENT&amp;url=%7bserver%7d%2femby%2fUsers%2f%7buserid%7d%2fItems%3fFields%3dDateCreated%2cEpisodeCount%2cSeasonCount%2cPath%2cGenres%2cStudios%2cEtag%2cMediaStreams%2cOverview%26Recursive%3dtrue%26IncludeItemTypes%3dSeries%26ImageTypeLimit%3d1%26format%3djson&quot;,return)</action>
+		<action>ActivateWindow(10025,plugin://plugin.video.embycon/?media_type=tvshows&amp;mode=GET_CONTENT&amp;url=%7bserver%7d%2femby%2fUsers%2f%7buserid%7d%2fItems%3fFields%3d%7bfield_filters%7d%26Recursive%3dtrue%26IncludeItemTypes%3dSeries%26ImageTypeLimit%3d1%26SortBy%3dName%26SortOrder%3dAscending%26format%3djson,return)</action>
 		<visible>System.HasAddon(plugin.video.embycon)</visible>
 	</shortcut>
 	<shortcut>

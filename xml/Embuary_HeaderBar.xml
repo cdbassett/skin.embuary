@@ -10,7 +10,7 @@
 		<definition>
 			<!-- Top bar -->
 			<control type="group">
-				<animation effect="slide" start="0,0" end="0,-80"  time="500" delay="100" condition="String.IsEmpty(Window(home).Property(ShowHeader)) + !ControlGroup(6666).HasFocus + !ControlGroup(6667).HasFocus + [[Container($PARAM[id]).HasPrevious + !Integer.IsEqual(Container($PARAM[id]).CurrentItem,1) + $PARAM[auto_hide]] | [$PARAM[hide_header]]]" tween="sine" easing="inout">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-80"  time="500" delay="100" condition="[String.IsEmpty(Window(home).Property(ShowHeader)) | Window.IsVisible(busydialognocancel)] + !ControlGroup(6666).HasFocus + !ControlGroup(6667).HasFocus + [[Container($PARAM[id]).HasPrevious + !Integer.IsEqual(Container($PARAM[id]).CurrentItem,1) + $PARAM[auto_hide]] | [$PARAM[hide_header]]]" tween="sine" easing="inout">Conditional</animation>
 				<control type="group">
 					<include>Animation_ScrollbarIsVisible</include>
 					<visible>!$EXP[InfoDialogActive]</visible>
@@ -79,6 +79,9 @@
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(videos) | Container.Content(files) | Container.Content(episodes)] + !String.IsEqual(control.getlabel(10),$LOCALIZE[16100]) + Window.IsVisible(MyVideoNav.xml) + Control.IsEnabled(10) + !String.IsEmpty(Control.getLabel(10)) + !$EXP[InfoDialogActive]</visible>
 					</control>
 					<control type="label">
+						<include content="ParamWidth" condition="$EXP[InfoDialogActive]">
+							<param name="width" value="80%"/>
+						</include>
 						<width>520</width>
 						<scroll>true</scroll>
 						<label>$PARAM[header_label]</label>
@@ -101,6 +104,7 @@
 					<ondown>SetFocus($PARAM[id])</ondown>
 					<onleft>900</onleft>
 					<onright>6667</onright>
+					<onback condition="Window.IsVisible(addonsettings)">1100</onback>
 					<include>$PARAM[content]</include>
 				</control>
 				<control type="grouplist" id="6667">
@@ -114,6 +118,7 @@
 					<align>right</align>
 					<onleft>6666</onleft>
 					<ondown>SetFocus($PARAM[id])</ondown>
+					<onback condition="Window.IsVisible(addonsettings)">1100</onback>
 					<!-- buttons -->
 					<control type="button" id="6668">
 						<font>Material24</font>
@@ -477,8 +482,8 @@
 			<include>HeaderButton</include>
 			<label>$LOCALIZE[135]</label>
 			<include>ForceReloadAction</include>
-			<onclick condition="String.IsEqual(Container.FolderPath,library://video/movies/) | Container.Content(movies) | Container.Content(sets) | [Window.IsVisible(1126) + String.IsEqual(Window(home).Property(RecommendedType),movie)]">SetProperty(ListGenres,videodb://movies/genres,home)</onclick>
-			<onclick condition="String.IsEqual(Container.FolderPath,library://video/tvshows/) | Container.Content(tvshows) | Window.IsVisible(script-NextAired-TVGuide.xml) | [Window.IsVisible(1126) + String.IsEqual(Window(home).Property(RecommendedType),tvshow)]">SetProperty(ListGenres,videodb://tvshows/genres,home)</onclick>
+			<onclick condition="String.IsEqual(Container.FolderPath,library://video/movies/) | Container.Content(movies) | Container.Content(sets) | [Window.IsVisible(1126) + String.IsEqual(Window(home).Property(RecommendedType),movie)]">SetProperty(ListGenres,plugin://script.embuary.helper/?info=getgenre&amp;type=movie,home)</onclick>
+			<onclick condition="String.IsEqual(Container.FolderPath,library://video/tvshows/) | Container.Content(tvshows) | Window.IsVisible(script-NextAired-TVGuide.xml) | [Window.IsVisible(1126) + String.IsEqual(Window(home).Property(RecommendedType),tvshow)]">SetProperty(ListGenres,plugin://script.embuary.helper/?info=getgenre&amp;type=tvshow,home)</onclick>
 			<onclick>ActivateWindow(1114)</onclick>
 			<visible>[
 				String.StartsWith(Container.FolderPath,videodb://movies)

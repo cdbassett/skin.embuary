@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1146" type="dialog">
-	<zorder>100</zorder>
+	<zorder>999999999</zorder>
 	<visible>Skin.HasSetting(DebugInfo)</visible>
 	<controls>
 		<control type="group">
@@ -509,7 +509,16 @@
 					<font>font_flag</font>
 					<align>right</align>
 					<label>Content $INFO[Container.Content,[COLOR FF5BE5EE]','[/COLOR]]</label>
-					<visible>!Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+				</control>
+				<!-- Content label -->
+				<control type="label">
+					<top>48</top>
+					<height>20</height>
+					<textcolor>yellow</textcolor>
+					<shadowcolor>FF000000</shadowcolor>
+					<font>font_flag</font>
+					<align>right</align>
+					<label>DBType $INFO[ListItem.DBType,[COLOR FF5BE5EE]','[/COLOR]]</label>
 				</control>
 				<!-- Window labels -->
 				<control type="label">
@@ -1260,8 +1269,8 @@
 					<shadowcolor>FF000000</shadowcolor>
 					<font>font_flag</font>
 					<align>right</align>
-					<label>script-script.extendedinfo-DialogInfo.xml</label>
-					<visible>Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+					<label>script-embuary-person.xml</label>
+					<visible>Window.IsVisible(script-embuary-person.xml)</visible>
 				</control>
 				<control type="label">
 					<height>20</height>
@@ -1270,8 +1279,8 @@
 					<shadowcolor>FF000000</shadowcolor>
 					<font>font_flag</font>
 					<align>right</align>
-					<label>script-script.extendedinfo-DialogVideoInfo.xml</label>
-					<visible>Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
+					<label>script-embuary-video.xml</label>
+					<visible>Window.IsVisible(script-embuary-video.xml)</visible>
 				</control>
 				<control type="label">
 					<height>20</height>

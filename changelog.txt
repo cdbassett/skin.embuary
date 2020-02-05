@@ -1,3 +1,133 @@
+[B]Version 18.8.8[/B]
+- Added support for new Artist Slideshow version
+- Added busy spinner to genre window
+- Cleanup
+
+[B]Version 18.8.7[/B]
+- remove unwanted pulse effect on sliderex control
+
+[B]Version 18.8.6[/B]
+- Fixed main menu artwork issues
+- Changed genre window because of speed issues on slower devices and with EmbyCon
+- Removed previously introduced "Fav. Kodi Movies" and "Fav. Kodi TV Shows" and replaced it with "Watchlist" tag support
+- Use DBID for TMDb search
+- Added "shuffle" and "repeat" buttons to music OSD
+- Added preview toggle in keyboard dialog
+
+[B]Version 18.8.4[/B]
+- Reload widgets directly after finished DB scan (helper addon)
+- Increased delay after last DB item update to reduce not required widget reloads (helper addon)
+- Fixed logic error in image cache handling (helper addon)
+- Fixed missing resume dialog for Embuary Helper listings and actions
+- Added content type and category info label to Embuary Helper nodes
+- Enabled episode views for Embuary Helper paths
+- Added "Restart Kodi" to shutdown menu for LE/CE
+- Fixed "Emby for Kodi addon missing" message in favourites for non Emby setups
+- Added TMDb button to fullscreen info dialog
+- Added Embuary Helper paths to menu editor dialog
+- Switched skin based select dialogs to context menu dialogs
+- Hide cast widget if trailer is playing
+- Show episode thumb in search results
+- Removed episode label duplicate in list view
+
+[B]Version 18.8.1[/B]
+- Fixed cinema mode
+- Fixed some main menu issues
+- Filter EmbyCon collections based on parent ID
+- Added new favourites movies/shows type for non Emby setups
+
+[B]Version 18.8.0[/B]
+BREAKING CHANGES
+A reset of menus, widgets and hubs is required due code changes. Otherwise you will face issues and bugs. A new setup dialog will do it for you.
+
+- Dropped previous method of Emby library nodes detection and replaced it with a general library nodes approach to support any Kodi tag based system
+- Added a new 'mixed' tag hub that will be used for "mixed content" Emby nodes
+- Emby nodes like "Homevideos & Photos" must be set manually now
+- Added library tag whitelist feature to disable unwanted library tag based hubs
+- Added option to rerun the skin setup
+- Episode cast list will now return the information based on the episode instead of the TV show
+- Fixed logged spamming during playback
+
+[B]Version 18.7.30[/B]
+- Use auto generated genre thumbnails (first generation can take a few seconds depending on the device)
+- Added tags to Slide view and info dialogs for movies and TV shows
+- Added genre widget to Emby nodes
+- Added "now playing in theaters" and "new movies coming soon" as shipped widgets. By default they are are set to the home screen. Existing setups have to manually assign them. They are available for the home screen and all movies hub.
+- Fixed missing Rotten Tomatoes rating in video info dialog
+- Fixed widget resetting
+
+[B]Version 18.7.29[/B]
+- Better slide view performance
+- Reworked some skin hacks
+- Faster scrolltimes in widgets
+- Readded showing video OSD on playback start (was removed by mistake)
+
+[B]Version 18.7.28[/B]
+- Fixed wide layout artworks
+
+[B]Version 18.7.27[/B]
+- Added new functions to Embuary Info script
+- Minor adjustments
+
+[B]Version 18.7.26[/B]
+- Reworked player OSD
+- Refresh PVR widgets after guide has been imported and every minute to avoid missing EPG thumbs
+- Removed annoying widget refresh glitch to fix focus outside of the visible screen
+
+[B]Version 18.7.25[/B]
+- Fixed "All TV shows" and "Unwatched TV shows" button in series hub (it's possible that a menu reset is required)
+- Fixed event log dialog
+
+[B]Version 18.7.25[/B]
+- Fixed showing empty TV shows by accessing "all TV shows" from the series hub (it's possible that a menu reset is required)
+- Show local media count in Embuary Info person dialog
+- Added button to search the database for actor items in the Embuary Info person dialog
+- Fixed some wrong selectedcolor values if custom colors are set
+- Use episode thumb in episode info dialog
+- Fixed UI glitches in system info for some Kodi builds
+- Keep paused on Embycon searches during playback
+- Removed cast search provider setting and use a select dialog instead
+- Fixed "next up episode" item for EmbyCon
+
+[B]Version 18.7.23[/B]
+- Fixed minor height issue in context menu
+- Reset focus position in Embuary Info dialogs on window close/change
+
+[B]Version 18.7.22[/B]
+- Fixed missing EPG thumb overlay
+- Added TMDb button to info movie and TV show info dialogs
+- Fixed sidebar issues with enabled main menu entries
+- Added fav. actors to favourites (EmbyCon)
+
+[B]Version 18.7.21[/B]
+- Added optional setting to use the main menu for the side panel media entries
+- Respect EmbyCon's "group movies" setting
+- Fixed some EmbyCon URL syntax issues
+
+[B]Version 18.7.20[/B]
+- Fixed "Movies - Embycon" button in All Movies hub (menu reset in skin settings is required)
+- Fixed "TV shows - Embycon" button in All TV shows hub (menu reset in skin settings is required)
+- Fixed recommended movies widget in All Movies hub
+- Fixed random movies widget in EmbyCon hubs
+- Fixed missing episode thumbnail in TV show info dialog outside of the library windows
+- Fixed missing TV show background fanart on season level
+
+[B]Version 18.7.19[/B]
+- Partly revert the side panel changes and use a own editable menu instead
+- Rearranged skin settings for the new side panel configuration
+- Fixed property cleanings for Embuary Info dialogs
+- Fixed 'continue watching' widget in EmbyCon movie hubs
+
+[B]Version 18.7.17 + 18.7.18[/B]
+- Fixed some minor issues
+
+[B]Version 18.7.16[/B]
+- Replaced ExtendedInfo with the new Embuary Info script
+- Fixed caching check in background blurring
+- Fixed inconsistency in labels
+- Reworked sidepanel and include the mainmenu
+- Added addon settings saving message if user is backing out
+
 [B]Version 18.7.15[/B]
 - Fixed an issue that caused custom widgets with some add-ons to break
 - Added support for native ListItem.Rating(rottentomatoes)

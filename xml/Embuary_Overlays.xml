@@ -2,25 +2,28 @@
 <includes>
 	<!-- Main listItem overlay -->
 	<include name="ListitemOverlay">
-		<control type="group">
-			<visible>!String.IsEqual(ListItem.DBType,artist) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,song)</visible>
-			<include content="ListItemOverlayWatchedStatus">
-				<param name="use_unwatched_property" value="$PARAM[use_unwatched_property]"/>
-			</include>
-			<include content="ListItemOverlayPVR">
-				<param name="pvr_overlay" value="$PARAM[pvr_overlay]"/>
-			</include>
-			<include>ListItemOverlayHDR</include>
-			<include>ListItemOverlayExtendedInfoIsLocal</include>
-			<include>ListItemOverlayAddonStatus</include>
-		</control>
+		<param name="pvr_overlay">true</param>
+		<definition>
+			<control type="group">
+				<visible>!String.IsEqual(ListItem.DBType,artist) + !String.IsEqual(ListItem.DBType,album) + !String.IsEqual(ListItem.DBType,song)</visible>
+				<include content="ListItemOverlayWatchedStatus">
+					<param name="use_unwatched_property" value="$PARAM[use_unwatched_property]"/>
+				</include>
+				<include content="ListItemOverlayPVR">
+					<param name="pvr_overlay" value="$PARAM[pvr_overlay]"/>
+				</include>
+				<include>ListItemOverlayHDR</include>
+				<include>ListItemOverlayTmbdbIsLocal</include>
+				<include>ListItemOverlayAddonStatus</include>
+			</control>
+		</definition>
 	</include>
 	<include name="ListItemOverlayWatchedStatus">
 		<param name="use_unwatched_property">false</param>
 		<definition>
 			<control type="group">
 				<visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | $EXP[IsWatched]</visible>
-				<visible>![Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]</visible>
+				<visible>![Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
 				<right>8</right>
 				<top>9</top>
 				<width>44</width>
@@ -35,14 +38,14 @@
 					<control type="label">
 						<top>-4</top>
 						<left>1</left>
-						<label>$INFO[Window(home).Property(tvshow.unwatchedepisodes)]</label>
+						<label>$INFO[Container(2000).ListItem.Property(unwatchedepisodes)]</label>
 						<font>BubbleFont</font>
 						<textcolor>white</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
 						<selectedcolor>white</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<visible>Integer.IsGreater(Window(home).Property(tvshow.unwatchedepisodes),0)</visible>
+						<visible>Integer.IsGreater(Container(2000).ListItem.Property(unwatchedepisodes),0)</visible>
 					</control>
 					<control type="label">
 						<top>6</top>
@@ -54,7 +57,7 @@
 						<selectedcolor>white</selectedcolor>
 						<align>center</align>
 						<aligny>top</aligny>
-						<visible>!Integer.IsGreater(Window(home).Property(tvshow.unwatchedepisodes),0)</visible>
+						<visible>!Integer.IsGreater(Container(2000).ListItem.Property(unwatchedepisodes),0)</visible>
 					</control>
 				</control>
 				<!-- with real property -->
@@ -144,7 +147,7 @@
 	</include>
 	<include name="ListItemOverlayHDR">
 		<control type="group">
-			<visible>$EXP[IsHDR]</visible>
+			<visible>$EXP[IsHDR] | $EXP[HasHDRTag]</visible>
 			<left>8</left>
 			<top>9</top>
 			<height>30</height>
@@ -154,33 +157,74 @@
 			</control>
 		</control>
 	</include>
-	<include name="ListItemOverlayExtendedInfoIsLocal">
-		<control type="group">
-			<visible>[Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)] + !String.IsEmpty(ListItem.DBID)</visible>
-			<right>8</right>
-			<top>9</top>
-			<width>44</width>
-			<height>44</height>
-			<control type="image">
-				<width>44</width>
-				<height>44</height>
-				<texture colordiffuse="$VAR[AccentColor]">items/bubble_small.png</texture>
-				<aspectratio>keep</aspectratio>
+	<include name="ListItemOverlayTmbdbIsLocal">
+		<param name="type">ListItem</param>
+		<definition>
+			<control type="group">
+				<visible>[Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | String.Contains($PARAM[type].filenameandpath,script.embuary.info)] + !String.IsEmpty($PARAM[type].DBID)</visible>
+				<control type="group">
+					<animation effect="slide" end="-48,0" time="0" condition="Integer.IsGreater($PARAM[type].Property(UnWatchedEpisodes),0) | Integer.IsGreaterOrEqual($PARAM[type].PlayCount,1)">Conditional</animation>
+					<right>8</right>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<width>44</width>
+						<height>44</height>
+						<texture colordiffuse="thumb_background_fallback_secondary">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>7</top>
+						<left>1</left>
+						<width>44</width>
+						<height>44</height>
+						<label>&#xfaa8;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Integer.IsGreater($PARAM[type].Property(UnWatchedEpisodes),0) | Integer.IsGreaterOrEqual($PARAM[type].PlayCount,1)</visible>
+					<right>8</right>
+					<top>9</top>
+					<width>44</width>
+					<height>44</height>
+					<control type="image">
+						<texture colordiffuse="$VAR[AccentColor]">items/bubble_small.png</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>-4</top>
+						<left>1</left>
+						<label>$INFO[$PARAM[type].Property(UnWatchedEpisodes)]</label>
+						<font>BubbleFont</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<visible>Integer.IsGreater($PARAM[type].Property(UnWatchedEpisodes),0)</visible>
+					</control>
+					<control type="label">
+						<top>6</top>
+						<left>1</left>
+						<label>&#xfe6e;</label>
+						<font>Material24</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<selectedcolor>white</selectedcolor>
+						<align>center</align>
+						<aligny>top</aligny>
+						<visible>Integer.IsGreaterOrEqual($PARAM[type].PlayCount,1)</visible>
+					</control>
+				</control>
 			</control>
-			<control type="label">
-				<top>7</top>
-				<left>1</left>
-				<width>44</width>
-				<height>44</height>
-				<label>&#xfaa8;</label>
-				<font>Material24</font>
-				<textcolor>white</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<selectedcolor>white</selectedcolor>
-				<align>center</align>
-				<aligny>top</aligny>
-			</control>
-		</control>
+		</definition>
 	</include>
 	<include name="ListItemOverlayAddonStatus">
 		<control type="group">

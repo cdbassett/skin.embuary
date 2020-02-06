@@ -269,12 +269,6 @@
 					<texture>special://skin/extras/themes/$VAR[SkinTheme]/vignette.png</texture>
 				</control>
 			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true">holiday/winter/frost.png</texture>
-				<aspectratio>stretch</aspectratio>
-				<visible>$EXP[HolidayTheme]</visible>
-			</control>
 		</definition>
 	</include>
 	<!-- Multi fanart background -->

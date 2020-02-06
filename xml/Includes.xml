@@ -76,14 +76,6 @@
 
 	<expression name="SkinSetup">[Skin.HasSetting(ApplySkinDefaults) + !Window.IsVisible(startup)]</expression>
 
-	<expression name="HolidayTheme">[System.Date(12-01,01-07) + !Skin.HasSetting(HideHolidayTheme) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo) | Window.IsActive(script-embuary-person.xml) | Window.IsActive(script-embuary-video.xml)]]</expression>
-
-	<expression name="HolidayTheme2">[System.Date(10-30,11-01) + !Skin.HasSetting(HideHolidayTheme) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo) | Window.IsActive(script-embuary-person.xml) | Window.IsActive(script-embuary-video.xml)]]</expression>
-
-	<expression name="HolidayTheme3">[System.Date(05-04,05-05) + !Skin.HasSetting(HideHolidayTheme) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo) | Window.IsActive(script-embuary-person.xml) | Window.IsActive(script-embuary-video.xml)]]</expression>
-
-	<expression name="HolidayTheme4">[System.Date(09-08,09-09) + !Skin.HasSetting(HideHolidayTheme) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo) | Window.IsActive(script-embuary-person.xml) | Window.IsActive(script-embuary-video.xml)]]</expression>
-
 	<expression name="HideBackground">[Window.IsVisible(eventlog) | Window.IsVisible(settingscategory.xml) | Window.IsVisible(systeminfo) | Window.IsVisible(skinsettings) | Window.IsVisible(addonsettings) | Window.IsVisible(filemanager) | Window.IsVisible(profiles) | Window.IsVisible(weather) | Window.IsVisible(pvrguideinfo)]</expression>
 
 	<expression name="InfoDialogActive">[Window.IsVisible(musicinformation) | Window.IsVisible(movieinformation) | Window.IsVisible(addoninformation) | Window.IsVisible(pvrguideinfo) | Window.IsVisible(pvrrecordinginfo) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(1115) | Window.IsVisible(subtitlesearch) | Window.IsVisible(favourites)]</expression>

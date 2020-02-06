@@ -395,12 +395,6 @@
 			<include>SettingsButton</include>
 			<onclick>SetProperty(Context.1.Label,$LOCALIZE[571])</onclick>
 			<onclick>SetProperty(Context.1.BuiltIn,RunScript(script.embuary.helper,action=setkodisetting,setting=lookandfeel.skincolors,value=Default))</onclick>
-			<onclick>SetProperty(Context.2.Label,Blue Radiance)</onclick>
-			<onclick>SetProperty(Context.2.BuiltIn,RunScript(script.embuary.helper,action=setkodisetting,setting=lookandfeel.skincolors,value=Blue Radiance))</onclick>
-			<onclick>SetProperty(Context.3.Label,Material)</onclick>
-			<onclick>SetProperty(Context.3.BuiltIn,RunScript(script.embuary.helper,action=setkodisetting,setting=lookandfeel.skincolors,value=Material))</onclick>
-			<onclick>SetProperty(Context.4.Label,Blex)</onclick>
-			<onclick>SetProperty(Context.4.BuiltIn,RunScript(script.embuary.helper,action=setkodisetting,setting=lookandfeel.skincolors,value=Blex))</onclick>
 			<onclick>RunScript(script.embuary.helper,action=createcontext,header=$LOCALIZE[15111])</onclick>
 			<label>$LOCALIZE[15111]</label>
 			<label2>[COLOR $VAR[AccentColor]]$VAR[SkinTheme][/COLOR]</label2>
@@ -589,31 +583,6 @@
 			<onclick>Skin.ToggleSetting(HideHeaderWeather)</onclick>
 			<selected>!Skin.HasSetting(HideHeaderWeather)</selected>
 			<label>$LOCALIZE[31110]</label>
-		</control>
-		<!-- holiday theems -->
-		<include content="SkinSettingsHeadlineLabel">
-			<param name="id" value="$PARAM[id]40"/>
-			<param name="label" value="$LOCALIZE[31015]"/>
-		</include>
-		<control type="radiobutton" id="$PARAM[id]41">
-			<include>SettingsButton</include>
-			<onclick>Skin.ToggleSetting(HideHolidayTheme)</onclick>
-			<selected>!Skin.HasSetting(HideHolidayTheme)</selected>
-			<label>$LOCALIZE[31295]</label>
-		</control>
-		<control type="radiobutton" id="$PARAM[id]42">
-			<include>SettingsButton</include>
-			<onclick>Skin.ToggleSetting(DoNotUseHolidayThemeSound)</onclick>
-			<selected>!Skin.HasSetting(DoNotUseHolidayThemeSound)</selected>
-			<enable>!Skin.HasSetting(HideHolidayTheme)</enable>
-			<label>$LOCALIZE[31294]</label>
-		</control>
-		<control type="radiobutton" id="$PARAM[id]43">
-			<include>SettingsButton</include>
-			<onclick>Skin.ToggleSetting(HideSeasonalWidgets)</onclick>
-			<selected>!Skin.HasSetting(HideSeasonalWidgets)</selected>
-			<label>$LOCALIZE[31293]</label>
-			<enable>[Library.HasContent(movies) | Library.HasContent(tvshows)]</enable>
 		</control>
 		<!-- misc -->
 		<include content="SkinSettingsHeadlineLabel">

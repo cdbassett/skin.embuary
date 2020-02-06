@@ -37,6 +37,15 @@
 		<visible>Library.HasContent(movies)</visible>
 	</shortcut>
 	<shortcut>
+		<defaultID>embuary_moviehub_recent</defaultID>
+		<label>Recently Watched Movies</label>
+		<label2/>
+		<icon/>
+		<thumb/>
+		<action>ActivateWindow(videos,special://skin/playlists/video/RecentlyWatchedMovies.xsp,return)</action>
+		<visible>Library.HasContent(movies)</visible>
+	</shortcut>
+	<shortcut>
 		<defaultID>embuary_moviehub_recommended</defaultID>
 		<label>$LOCALIZE[31017]</label>
 		<label2/>
